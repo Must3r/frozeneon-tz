@@ -1,4 +1,4 @@
-# nethernite-tz
+# frozeneon-tz
 
 ## Project setup
 ```
