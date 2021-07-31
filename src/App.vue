@@ -9,6 +9,7 @@
       <v-spacer></v-spacer>
       <v-text-field
         v-model="searchTerm"
+        class="ml-4"
         prepend-inner-icon="mdi-magnify"
         placeholder="Enter search term"
         outlined
