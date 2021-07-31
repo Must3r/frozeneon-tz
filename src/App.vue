@@ -29,18 +29,32 @@
         >
           <template v-slot:item="{ item }">
             <tr class="pointer" @click="showDetails(item)">
-              <td class="text-center" width="40">
+              <td class="package-rank text-center" width="40">
                 <b>{{ packages.indexOf(item) + 1 }}</b>
               </td>
-              <td>
-                {{ item.name }}
+              <td class="package-name">
+                <v-list-item class="px-0">
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      {{ item.name }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle class="d-sm-none">
+                      <v-icon>
+                        {{ `mdi-${typeIcon(item.type)}` }}
+                      </v-icon>
+                      <span class="ml-2">
+                        {{ item.hits }}
+                      </span>
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
               </td>
-              <td width="80">
+              <td class="package-icon d-none d-sm-table-cell" width="80">
                 <v-icon>
                   {{ `mdi-${typeIcon(item.type)}` }}
                 </v-icon>
               </td>
-              <td width=80>
+              <td class="package-hits d-none d-sm-table-cell" width=80>
                 {{ item.hits }}
               </td>
             </tr>
@@ -126,7 +140,7 @@ export default {
       return [
         { text: 'Rank', value: '', sortable: false },
         { text: 'Name', value: 'name' },
-        { text: 'Type', value: 'type' },
+        { text: 'Type', value: 'type', sortable: false },
         { text: 'Hits', value: 'hits' },
       ];
     },
@@ -163,5 +177,10 @@ export default {
 <style lang="scss">
 .pointer {
   cursor: pointer;
+}
+.package {
+  &-name {
+    width: 100%;
+  }
 }
 </style>

@@ -1,6 +1,11 @@
 <script>
 export default {
   name: 'CommonMixin',
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.xs;
+    },
+  },
   methods: {
     typeIcon(item) {
       switch (item) {
